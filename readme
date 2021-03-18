@@ -1,0 +1,33 @@
+
+
+1. npm install --save  babel-cli babel-preset-env babel-preset-stage-0
+
+2. create .babelrc 
+   {
+    "presets": [
+        "env","stage-0"
+    ]
+   }
+
+
+3. npm install body-parser nodemon 
+
+4. change inistal script in package.json file from test to: 
+   "start": "nodemon ./index.js --exec babel-node -e js"
+
+5. what is middleware? 
+   ans: middleware are simply functions that have access to the request and response object
+        it can make changes to the request response object, can end them, can call another function
+        in the stack using next, etcetera
+
+6. test API in POSTMAN
+   POST => body => x-www-form-urlencoded    
+
+7. *****************************
+  After build of front Edn===
+  1. copy build folder to backend folder 
+  2. add [ app.use(express.static(path.join(__dirname, '/build'))) ] and 
+  [ app.get('*', (req, res) =>{
+    res.sendFile(path.join(__dirname + '/build/index.html'));
+   })
+  ]
